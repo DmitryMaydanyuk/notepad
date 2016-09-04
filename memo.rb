@@ -1,11 +1,22 @@
-class memo < Post
+class Memo < Post
 
-  def read_from_concole
-    #todo
+  def read_from_console
+    puts "Все что вы введете до строчки \"end\" я сохраню в новой заметки!"
+
+    @text = []
+    line = nil
+
+    while line != "end" do
+      line = STDIN.gets.chomp
+      @text << line
+    end
+
+    text.pop
   end
 
-  def to_string
-    #todo
-  end
+  def to_strings
+    time_string = "Создано: #{@created_at.strftime("%Y.%m.%d, %H:%M:%S")} \n\r \n\r"
 
+     return @text.unshift(time_string)
+  end
 end
